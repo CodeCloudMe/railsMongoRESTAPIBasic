@@ -1,10 +1,10 @@
-Rails & MongoDB on OpenShift: Simple Blog UI / Restful API
+Rails & MongoDB on OpenShift: Simple Post UI / Restful API
 
 For OpenShift:
 When you create your application gear on OpenShift, be sure to select the Rails cartridge. 
 The Rails cartridge comes with a Gitub repo already filled in, so keep that there.
 
-Then, add the MongoDB cartridge (MongoDB  2.4) once OpenShift finishes creating the your app. 
+Then, add the MongoDB cartridge (MongoDB  2.4) once OpenShift finishes creating your app. 
 
 If you want to perform the MongoDB include  from your command line, you can run: 
 
