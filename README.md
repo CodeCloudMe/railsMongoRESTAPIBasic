@@ -56,6 +56,11 @@ bundle install
 Once that completes (will take a few moments), type into your terminal:
 rails server
 
+You will need mondgodb running on your computer for this to work. If you don't have MondgoDB, install it here: 
+
+From the unzipped folder location, open a new terminal for that directoy. Run: "sudo mongod".
+MongoDB should start. Minimize this window. If you close this window, Mongo will stop and it will be hard to restart. (to stop properly from your terminal, run "Ctrl-C" in the terminal window in which Mongo is running).
+
 Now you can navigate to: 0.0.0.0:3000/posts
 
 ***************
