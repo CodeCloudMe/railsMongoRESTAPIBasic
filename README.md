@@ -84,7 +84,7 @@ $.ajax({"url":"/posts/53add5954e696d6fab000000/", "method":"PATCH", "data":{"pos
 
 Additional information about this configuration with Ruby and MongoDB can be found here: https://www.openshift.com/blogs/how-to-run-rails-4-with-mongodb-on-openshift. This example skips many of the steps involved in the above step-by-step and we take care of this for you. However, if you want to "do it all" yourself, you can follow this turorial; however, it does not mention the environment variable aspect, which you will need to complete by SSHing into your OpenShift gear, as we describe in the OpenShift config above.
 
-More documentation on this can be found in the Marknad project on CodeCloud.me
+More documentation on this can be found in the Marknad project on http://codecloud.me
 
 
 
