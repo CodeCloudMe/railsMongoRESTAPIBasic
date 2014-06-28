@@ -1,17 +1,29 @@
 Rails & MongoDB on OpenShift: Simple Blog UI / Restful API
 
 For OpenShift:
-When you create your application gear on OpenShift, be sure to select Ruby 1.9 (not Rails). Then, add the MongoDB cartridge (MongoDB  2.4)
-Or run: 
-rhc app create ruby-1.9 -a yourAppName
+When you create your application gear on OpenShift, be sure to select the Rails cartridge. 
+The Rails cartridge comes with a Gitub repo already filled in, so keep that there.
+
+Then, add the MongoDB cartridge (MongoDB  2.4) once OpenShift finishes creating the your app. 
+
+If you want to perform the MongoDB include  from your command line, you can run: 
+
 rhc cartridge add mongodb-2.4 -a yourAppName
 
-Now, cd into yourAppName.
+Now, cd into yourAppName (whatever "yourAppName" is. Mine was woowoorks.
+
+Remove all the files with the following (inside your project folder in your terminal)
+sudo rm -rf *
+
+
+
 Run: 
 git remote add upstream -m master http://github.com/CodeCloudMe/railsMongoRESTAPIBasic.git
 git pull -s recursive -X theirs upstream master
 
-Now: 
+You now have the code for this Demo example.
+
+Now (from the terminal): 
 git push upstream master
 
 Now, login via ssh to your openshift server. In  OpenShit, after clicking on your application, click "Want to login to your application". Copy the "ssh 53ab76df5973c[...]"
@@ -22,6 +34,8 @@ Now, run:
 rake secret
 
 Copy the secret key that is displayed (should be many letters and numbers)
+
+Find your openshift app name by locating it in the list after running "rch setup" from the command line.
 
 Now run:
 rhc set-env SECRET_KEY_BASE=**yourCodeFromTheServer** -a yourOpenShiftAppName
