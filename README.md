@@ -24,20 +24,27 @@ git pull -s recursive -X theirs upstream master
 You now have the code for this Demo example.
 
 Now (from the terminal): 
-git push upstream master
+git push origin master (your Openshift app)
 
-Now, login via ssh to your openshift server. In  OpenShit, after clicking on your application, click "Want to login to your application". Copy the "ssh 53ab76df5973c[...]"
+Now, login via ssh to your openshift server. In  OpenShift, after clicking on your application, click "Want to login to your application". Copy the "ssh 53ab76df5973c[...]"
 " code
 
 Paste that into your terminal.
-Now, run:
+Now, navigate to your source code with:
+cd app-root/runtime/repo
+
+Now run:
 rake secret
 
 Copy the secret key that is displayed (should be many letters and numbers)
 
 Find your openshift app name by locating it in the list after running "rch setup" from the command line.
 
-Now run:
+Run rhc setup to see a list of your apps. Take note of your Rails app name. It will be "yourOpenShiftAppName" in the following bit. Also, "yourCodeFromTheServer" is the secret code your copied when you raked.
+
+Now logout with : exit
+
+Now that you're back into your folder:
 rhc set-env SECRET_KEY_BASE=**yourCodeFromTheServer** -a yourOpenShiftAppName
 
 Now restart your app:
