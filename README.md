@@ -1,6 +1,5 @@
 Rails & MongoDB on OpenShift: Simple Post UI / Restful API
-
-For OpenShift:
+For OpenShift-> Local:
 When you create your application gear on OpenShift, be sure to select the Rails cartridge. 
 The Rails cartridge comes with a Gitub repo already filled in, so keep that there.
 
@@ -18,7 +17,7 @@ sudo rm -rf *
 
 
 Run: 
-git remote add upstream -m master http://github.com/CodeCloudMe/railsMongoRESTAPIBasic.git
+git remote add upstream -m master http://github.com/CodeCloudMe/simple.git
 git pull -s recursive -X theirs upstream master
 
 You now have the code for this Demo example.
@@ -38,14 +37,19 @@ rake secret
 
 Copy the secret key that is displayed (should be many letters and numbers)
 
-Find your openshift app name by locating it in the list after running "rch setup" from the command line.
+Now logout with of your OpenShift server with: 
+exit
+
+Now that you're back into your project folder on local, find your openshift app name by locating it in the list after running from the terminal:
+rhc setup
 
 Run rhc setup to see a list of your apps. Take note of your Rails app name. It will be "yourOpenShiftAppName" in the following bit. Also, "yourCodeFromTheServer" is the secret code your copied when you raked.
 
-Now logout with : exit
 
-Now that you're back into your folder:
-rhc set-env SECRET_KEY_BASE=**yourCodeFromTheServer** -a yourOpenShiftAppName
+
+Now that you're back into your folder, set your SECRET_KEY_BASE:
+rhc set-env SECRET_KEY_BASE=yourCodeFromTheServer-a yourOpenShiftAppName
+
 
 Now restart your app:
 rhc app-stop yourOpenShiftAppName
@@ -86,13 +90,10 @@ Now you can navigate to: 0.0.0.0:3000/posts
 
 ***************
 
-To make API calls via AJAX, you can write code like:
+To make API calls via AJAX, you can write code like (granted jQuery is installed):
 $.ajax({"url":"/posts/53add5954e696d6fab000000/", "method":"PATCH", "data":{"post[Title]":"hell", "post[Body]":"howdy", "format":"json"}})
 
 Additional information about this configuration with Ruby and MongoDB can be found here: https://www.openshift.com/blogs/how-to-run-rails-4-with-mongodb-on-openshift. This example skips many of the steps involved in the above step-by-step and we take care of this for you. However, if you want to "do it all" yourself, you can follow this turorial; however, it does not mention the environment variable aspect, which you will need to complete by SSHing into your OpenShift gear, as we describe in the OpenShift config above.
 
 More documentation on this can be found in the Marknad project on http://codecloud.me
-
-
-
 
